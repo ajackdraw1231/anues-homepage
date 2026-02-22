@@ -1,0 +1,224 @@
+:root {
+    --primary-color: #004680;
+    --accent-color: #e74c3c; /* 빨간색 강조용 */
+    --bg-color: #f8fafc;
+    --white: #ffffff;
+    --text-main: #334155;
+    --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+}
+
+/* 기초 설정 */
+* { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Pretendard', sans-serif; }
+body { background-color: var(--bg-color); color: var(--text-main); min-height: 100vh; overflow-x: hidden; }
+
+/* [PC] 헤더 레이아웃 */
+.header { 
+    background-color: var(--white); 
+    height: 100px; 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    box-shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1); 
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1200px;
+    padding: 0 30px;
+}
+
+/* 메뉴 리스트 공통 */
+.nav-menu {
+    display: flex;
+    list-style: none;
+    gap: 15px;
+    flex: 1; 
+    align-items: center;
+}
+
+.left-menu { justify-content: flex-start; }
+.right-menu { justify-content: flex-end; }
+
+/* 메뉴 아이템 스타일 */
+.menu-item { 
+    padding: 10px 15px; 
+    cursor: pointer; 
+    transition: 0.2s; 
+    font-size: 1rem;
+    font-weight: 500;
+    border-bottom: 3px solid transparent;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+}
+.menu-item:hover { color: var(--primary-color); }
+.menu-item.active { 
+    color: var(--primary-color); 
+    border-bottom-color: var(--primary-color);
+}
+
+/* 설정(Admin) 메뉴 숨기기 */
+#admin-menu {
+    display: none !important;
+}
+
+/* [핵심 수정] 로그아웃 버튼: 빨간색 배경 + 흰색 글자 + 우측 끝 배치 */
+.logout-btn { 
+    background-color: var(--accent-color); /* 빨간색 배경 */
+    color: var(--white); /* 흰색 글자 */
+    padding: 8px 18px; 
+    border: none; 
+    border-radius: 6px; /* 모서리 둥글게 */
+    cursor: pointer; 
+    font-size: 0.9rem; 
+    font-weight: 600; 
+    transition: background-color 0.3s, transform 0.2s;
+    white-space: nowrap;
+    /* 왼쪽 여백을 자동으로 채워 버튼을 오른쪽 끝으로 밀어냄 */
+    margin-left: auto; 
+    box-shadow: 0 2px 4px rgba(231, 76, 60, 0.2);
+}
+
+.logout-btn:hover { 
+    background-color: #c0392b; /* 호버 시 조금 더 어두운 빨간색 */
+    transform: translateY(-1px); /* 약간 위로 떠오르는 효과 */
+}
+
+.logout-btn:active {
+    transform: translateY(0);
+}
+
+/* 로고 영역 */
+.logo-area {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 40px;
+    overflow: hidden;
+}
+#header-logo { width: 140px; cursor: pointer; transition: transform 0.2s; }
+#header-logo:hover { transform: scale(1.05); }
+
+#admin-tag {
+    font-size: 0.7rem;
+    background: var(--accent-color);
+    color: white;
+    padding: 2px 6px;
+    border-radius: 3px;
+    margin-top: 5px;
+}
+
+/* 메인 컨텐츠 및 캘린더 */
+.main-container { width: 100%; display: block; }
+.content { max-width: 1100px; margin: 0 auto; padding: 40px 20px; }
+
+.calendar-container { background: var(--white); padding: 30px; border-radius: 16px; box-shadow: var(--shadow-md); }
+.calendar-table { width: 100%; border-collapse: separate; border-spacing: 4px; table-layout: fixed; }
+.calendar-table td { height: 100px; border: 1px solid #f1f5f9; cursor: pointer; vertical-align: top; padding: 10px; border-radius: 8px; position: relative; }
+
+/* 오늘 날짜 강조 */
+.today { 
+    border: 2px solid var(--primary-color) !important; 
+    background-color: #f0f7ff;
+    font-weight: bold; 
+}
+.today span { color: var(--primary-color); }
+
+.calendar-bar-container { display: flex; flex-direction: column; gap: 2px; margin-top: 5px; }
+.calendar-bar { height: 4px; border-radius: 2px; width: 100%; }
+.bar-task { background-color: #3498db; }
+.bar-event { background-color: #f39c12; }
+.bar-etc { background-color: #94a3b8; }
+
+.course-card { background: var(--white); padding: 24px; border-radius: 16px; border-top: 4px solid var(--primary-color); box-shadow: var(--shadow-md); margin-bottom: 20px; }
+
+/* 모달 스타일 */
+.modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.5); justify-content: center; align-items: center; }
+.modal-content { background: white; padding: 30px; border-radius: 15px; width: 320px; text-align: center; }
+.modal-content input { width: 100%; padding: 12px; margin: 8px 0; border: 1px solid #e2e8f0; border-radius: 8px; }
+#login-submit { width: 100%; padding: 12px; background: var(--primary-color); color: white; border: none; border-radius: 8px; cursor: pointer; margin-top: 10px; }
+
+/* ------------------------------------------------------
+   모바일 최적화 (768px 이하) - 한 줄 가로 스크롤 레이아웃
+   ------------------------------------------------------ */
+@media screen and (max-width: 768px) {
+    /* 헤더 높이 고정 */
+    .header { height: 58px; padding: 0; }
+
+    /* nav-container: 단일 가로 행, 오버플로우 시 스크롤 */
+    .nav-container {
+        max-width: 100%;
+        padding: 0;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
+        overflow-x: auto;
+        overflow-y: hidden;
+        scrollbar-width: none;
+        gap: 0;
+    }
+    .nav-container::-webkit-scrollbar { display: none; }
+
+    /* 로고: 맨 앞으로, 왼쪽에 sticky 고정 */
+    .logo-area {
+        order: 1;
+        position: sticky;
+        left: 0;
+        z-index: 10;
+        background: var(--white);
+        margin: 0;
+        padding: 0 12px;
+        flex-shrink: 0;
+        border-right: 1px solid #f1f5f9;
+        height: 58px;
+        overflow: hidden;
+        justify-content: center;
+    }
+    #header-logo { width: auto; max-height: 36px; }
+
+    /* 왼쪽 메뉴: 로고 다음 */
+    .left-menu {
+        order: 2;
+        flex: none;
+        justify-content: flex-start;
+        gap: 0;
+        overflow-x: visible;
+        padding-bottom: 0;
+        scrollbar-width: unset;
+    }
+    .left-menu::-webkit-scrollbar { display: unset; }
+
+    /* 오른쪽 메뉴: 왼쪽 메뉴 다음, 끝에 여백 */
+    .right-menu {
+        order: 3;
+        flex: none;
+        justify-content: flex-start;
+        gap: 0;
+        padding-right: 15px;
+    }
+
+    /* 메뉴 아이템 크기 축소 */
+    .menu-item {
+        font-size: 0.82rem;
+        padding: 8px 11px;
+        white-space: nowrap;
+    }
+
+    /* 로그아웃 버튼 */
+    .logout-btn {
+        margin-left: 8px;
+        font-size: 0.78rem;
+        padding: 6px 11px;
+        flex-shrink: 0;
+    }
+
+    /* 컨텐츠 영역 */
+    .content { padding: 20px 10px; }
+    .calendar-container { padding: 10px 5px; }
+    .calendar-table td { height: 65px; padding: 5px; font-size: 0.75rem; }
+}

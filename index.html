@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ANUES - Shared</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.15.0/firebase-database-compat.js"></script>
+</head>
+<body>
+    <div id="login-modal" class="modal">
+        <div class="modal-content">
+            <h2>Admin Login</h2>
+            <input type="text" id="admin-id" placeholder="아이디">
+            <input type="password" id="admin-pw" placeholder="비밀번호">
+            <button id="login-submit">로그인</button>
+            <button id="login-close" style="margin-top:12px; background:none; border:none; color:#94a3b8; text-decoration:underline; cursor:pointer;">취소</button>
+            <p id="login-error" style="color:red; display:none; margin-top:10px;">정보가 일치하지 않습니다.</p>
+        </div>
+    </div>
+
+    <header class="header">
+        <div class="nav-container">
+            <ul class="nav-menu left-menu">
+                <li class="menu-item active" data-target="main">🏠 메인</li>
+                <li class="menu-item" data-target="calendar">🗓️ 캘린더</li>
+            </ul>
+            <div class="logo-area">
+                <img src="Image/ANUES_PNG.png" alt="ANUES Logo" id="header-logo">
+                <span id="admin-tag" style="display:none;">Admin</span>
+            </div>
+            <ul class="nav-menu right-menu">
+                <li class="menu-item" data-target="notice">📢 공지</li>
+                <li class="menu-item" data-target="event">📣 이벤트</li>
+                <li class="menu-item" data-target="community">💬 커뮤니티</li>
+                <li class="menu-item" data-target="admin" id="admin-menu" style="display:none; color:#e74c3c;">⚙️ 설정</li>
+                <button class="logout-btn" id="logout-btn" style="display:none;">로그아웃</button>
+            </ul>
+        </div>
+    </header>
+
+    <div class="main-container">
+        <main class="content" id="main-content"></main>
+    </div>
+
+    <script>
+        // [필독] 이 부분에 본인의 Firebase 설정값을 넣으세요!
+        const firebaseConfig = {
+            apiKey: "AIzaSyDvNzhtMZXqLW7JS6Zv8Bxz3bFCMIYmuqs",
+            authDomain: "anues-a3679.firebaseapp.com",
+            databaseURL: "https://anues-a3679-default-rtdb.firebaseio.com",
+            projectId: "anues-a3679",
+            storageBucket: "anues-a3679.firebasestorage.app",
+            messagingSenderId: "954126150382",
+            appId: "1:954126150382:web:fed220613fbf304721a1ff",
+            measurementId: "G-NZS2TY4872"
+        };
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+    </script>
+    <script src="script.js"></script>
+</body>
+</html>
