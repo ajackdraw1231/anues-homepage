@@ -72,7 +72,7 @@ function renderPage(target) {
         contentArea.innerHTML = `<h2>⚙️ 어드민 설정</h2><div class="course-card"><h3>관리자 모드가 활성화되어 있습니다.</h3></div>`;
     }
     else {
-        contentArea.innerHTML = `<div style="text-align:center; padding:50px;"><img src="Image/Main_Img.png" style="max-width:100%; border-radius:20px;"></div>`;
+        contentArea.innerHTML = `<div style="text-align:center; padding:50px;"><img src="Image/Main_Img.webp" style="max-width:100%; border-radius:20px;"></div>`;
     }
 }
 
