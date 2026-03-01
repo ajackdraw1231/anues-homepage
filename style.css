@@ -169,45 +169,101 @@ body {
     padding: 40px 20px;
 }
 
+.content-header {
+    color: white;
+    margin-bottom: 16px;
+    padding-inline: 16px;
+}
+
 .calendar-container {
-    background: var(--white);
+    background: transparent;
     padding: 30px;
     border-radius: 16px;
     box-shadow: var(--shadow-md);
+    color: white;
 }
 
 .calendar-table {
     width: 100%;
     border-collapse: separate;
     border-spacing: 4px;
-    table-layout: fixed;
+
+    background: linear-gradient(135deg,
+            #FFA496,
+            #FD4267,
+            #3F6DDD,
+            #FFA496);
+    filter: saturate(1.2);
 }
 
-.calendar-table td {
-    height: 100px;
-    border: 1px solid #f1f5f9;
-    cursor: pointer;
-    vertical-align: top;
+.calendar-table thead th {
     padding: 10px;
-    border-radius: 8px;
+    /* 헤더는 그라데이션 배경이 보이지 않도록 기본 배경색 사용 */
+    background-color: var(--bg-color);
+    color: var(--white);
+    font-weight: 600;
+    margin-bottom: 16px;
+    border: none;
+    /* 헤더에는 테두리 제거 */
+}
+
+/* 요일행(1행) 경계(그라데이션)만 안 보이게 덮기 */
+.calendar-table thead {
     position: relative;
 }
 
-/* 오늘 날짜 강조 */
+.calendar-table thead::after {
+    content: "";
+    position: absolute;
+
+    /* 위 + 좌우만 덮기 */
+    top: -4px;
+    left: -4px;
+    right: -4px;
+
+    /* 아래는 덮지 않음 */
+    bottom: 0px;
+
+    background: var(--bg-color);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.calendar-table thead th {
+    position: relative;
+    z-index: 1;
+}
+
+.calendar-table thead tr {
+    border-spacing: 0;
+}
+
+
+.calendar-table td {
+    height: 100px;
+    /* 셀 자체에는 테두리 없음; 배경색을 채워서 그라데이션이 셀 간격으로 보이게 함 */
+    background: var(--bg-color);
+    cursor: pointer;
+    vertical-align: top;
+    padding: 10px;
+    position: relative;
+
+}
+
+
+/* 오늘 날짜 강조
 .today {
     border: 2px solid var(--primary-color) !important;
-    background-color: #f0f7ff;
     font-weight: bold;
 }
 
 .today span {
     color: var(--primary-color);
-}
+} */
 
 .calendar-bar-container {
     display: flex;
     flex-direction: column;
-    gap: 2px;
     margin-top: 5px;
 }
 
@@ -237,6 +293,16 @@ body {
     box-shadow: var(--shadow-md);
     margin-bottom: 20px;
 }
+
+.nav-btn{
+    background: transparent;
+    border: none;
+    color: var(--white);
+    font-size: 1.2rem;
+    cursor: pointer;
+    padding: 8px 12px;
+}
+
 
 /* 모달 스타일 */
 .modal {

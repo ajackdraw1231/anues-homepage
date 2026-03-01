@@ -13,7 +13,6 @@ function renderPage(target) {
 
     if (target === 'calendar') {
         contentArea.innerHTML = `
-            <h2>🗓️ 학습 캘린더</h2>
             <div class="calendar-container">
                 <div class="calendar-header-nav" style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px;">
                     <button id="prevMonth" class="nav-btn">◀</button>
