@@ -34,7 +34,7 @@ function renderPage(target) {
         renderCalendar();
     } 
     else if (['notice', 'event', 'community'].includes(target)) {
-        const titles = { notice: "📢 공지사항", event: "📣 이벤트", community: "💬 커뮤니티" };
+        const titles = { notice: "공지사항", event: "이벤트", community: "커뮤니티" };
         
         // Firebase에서 데이터 읽기
         db.ref(target + 's').on('value', (snapshot) => {
@@ -69,6 +69,12 @@ function renderPage(target) {
     }
     else if (target === 'admin') {
         contentArea.innerHTML = `<h2>⚙️ 어드민 설정</h2><div class="course-card"><h3>관리자 모드가 활성화되어 있습니다.</h3></div>`;
+    }
+    else if(target === 'join-form'){
+        contentArea.innerHTML = `
+        <div class="image-container">
+            <img src="Image/Join_Form.webp" alt="가입 양식">
+        </div>`
     }
     else {
         contentArea.innerHTML = `<div style="text-align:center; padding:50px;"><img src="Image/Main_Img.webp" style="max-width:100%; border-radius:20px;"></div>`;

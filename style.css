@@ -24,6 +24,18 @@ body {
     overflow-x: hidden;
 }
 
+.image-container {
+    max-width: 1100px;   /* 최대 1100px */
+    width: 100%;
+    margin: 0 auto;      /* 가운데 정렬 */
+}
+
+.image-container img {
+    width: 100%;         /* 컨테이너 너비에 맞춤 */
+    height: auto;        /* 비율 유지 */
+    display: block;
+}
+
 /* [PC] 헤더 레이아웃 */
 .header {
     height: 100px;
