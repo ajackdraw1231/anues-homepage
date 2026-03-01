@@ -294,12 +294,12 @@ body {
     .nav-container {
         max-width: 100%;
         padding: 0;
-        flex-wrap: nowrap;
-        justify-content: flex-start;
-        overflow-x: auto;
+        display: flex;
+        justify-content: space-between;
         overflow-y: hidden;
         scrollbar-width: none;
         gap: 0;
+        padding-inline: 32px;
     }
 
     .nav-container::-webkit-scrollbar {
@@ -312,12 +312,10 @@ body {
         position: sticky;
         left: 0;
         z-index: 10;
-        background: var(--white);
         margin: 0;
         padding: 0 12px;
         flex-shrink: 0;
-        border-right: 1px solid #f1f5f9;
-        height: 58px;
+        height: 64px;
         overflow: hidden;
         justify-content: center;
     }

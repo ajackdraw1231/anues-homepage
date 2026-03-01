@@ -204,7 +204,7 @@ document.getElementById('login-submit').onclick = () => {
 };
 
 document.getElementById('login-close').onclick = () => { document.getElementById('login-modal').style.display = "none"; };
-document.getElementById('logout-btn').onclick = () => { sessionStorage.removeItem("isAdmin"); location.reload(); };
+// document.getElementById('logout-btn').onclick = () => { sessionStorage.removeItem("isAdmin"); location.reload(); };
 
 document.querySelectorAll('.menu-item').forEach(item => {
     item.addEventListener('click', () => renderPage(item.getAttribute('data-target')));
