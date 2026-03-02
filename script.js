@@ -77,8 +77,27 @@ function renderPage(target) {
         </div>`
     }
     else {
-        contentArea.innerHTML = `<div style="text-align:center; padding:50px;"><img src="Image/Main_Img.webp" style="max-width:100%; border-radius:20px;"></div>`;
+    let index = 1;
+    let html = `<div class="main-image-wrapper">`;
+
+    function loadImage() {
+        const img = new Image();
+        img.src = `Image/Main_Img_${index}.webp`;
+
+        img.onload = function () {
+            html += `<img src="Image/Main_Img_${index}.webp" class="main-img">`;
+            index++;
+            loadImage();
+        };
+
+        img.onerror = function () {
+            html += `</div>`;
+            contentArea.innerHTML = html;
+        };
     }
+
+    loadImage();
+}
 }
 
 // 캘린더 렌더링 (Firebase 연동)
